@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Code Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-controls">
+            <h1> Morse Code Converter</h1>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
+        <p class="subtitle">Convert text to Morse code and vice versa</p>
+
+        <div class="converter-section">
+            <div class="input-group">
+                <div class="label-row">
+                    <label for="textInput">Text Input:</label>
+                    <span class="char-count" id="textCharCount">0 characters</span>
+                </div>
+                <textarea id="textInput" placeholder="Enter text here (e.g., Hello World)" oninput="updateCharCount('text')"></textarea>
+                <button class="copy-btn" onclick="copyToClipboard('textInput')" title="Copy to clipboard">
+                     Copy
+                </button>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-primary" onclick="convertToMorse()">Convert to Morse ➜</button>
+                <button class="btn-secondary" onclick="clearAll()">Clear All</button>
+            </div>
+
+            <div class="input-group">
+                <div class="label-row">
+                    <label for="morseInput">Morse Code:</label>
+                    <span class="char-count" id="morseCharCount">0 characters</span>
+                </div>
+                <textarea id="morseInput" placeholder="Enter Morse code here (use spaces between letters, ' / ' between words)" oninput="updateCharCount('morse')"></textarea>
+                <div class="morse-controls">
+                    <button class="copy-btn" onclick="copyToClipboard('morseInput')" title="Copy to clipboard">
+                         Copy
+                    </button>
+                    <button class="play-btn" onclick="playMorse()" title="Play Morse code audio">
+                        Play Audio
+                    </button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-primary" onclick="convertToText()">Convert to Text ➜</button>
+                <button class="btn-secondary" onclick="swapInputs()">↕ Swap</button>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>ℹ️ How to use:</h3>
+            <p><strong>Text to Morse:</strong> Type any text in the top box and click "Convert to Morse"</p>
+            <p><strong>Morse to Text:</strong> Type Morse code in the bottom box (separate letters with spaces, words with " / ") and click "Convert to Text"</p>
+            <p><strong>Examples:</strong></p>
+            <div class="morse-reference">
+                <div class="morse-item"><span class="morse-char">A</span><br>.-</div>
+                <div class="morse-item"><span class="morse-char">B</span><br>-...</div>
+                <div class="morse-item"><span class="morse-char">C</span><br>-.-.</div>
+                <div class="morse-item"><span class="morse-char">S</span><br>...</div>
+                <div class="morse-item"><span class="morse-char">O</span><br>---</div>
+                <div class="morse-item"><span class="morse-char">S</span><br>...</div>
+            </div>
+        </div>
+
+        <footer>
+            By Lora | Open Source on GitHub
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
